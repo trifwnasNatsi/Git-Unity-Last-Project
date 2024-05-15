@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -53,4 +54,27 @@ public class StateMachineHandler : MonoBehaviour
             }
         }
     }
+    public void TransitionToDeadState()
+    {
+        // Activate DeadState
+        foreach (var state in states)
+        {
+            if (state.GetType() == typeof(DeadState))
+            {
+                state._Update(actuator, target);
+                break;
+            }
+        }
+
+        // Set Dead animation
+        animationController.SetAnimationDead();
+        StartCoroutine(DestroyAfterDelay());
+        
+    }
+    private IEnumerator DestroyAfterDelay()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
+    }
+
 }

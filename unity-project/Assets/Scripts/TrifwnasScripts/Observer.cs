@@ -6,11 +6,17 @@ public class Observer : MonoBehaviour
 
     public float GetDistanceTo(Transform target)
     {
-        float distance = Vector3.Distance(transform.position, target.position);
-        if (ignoreOurSkin)
-            distance -= transform.lossyScale.z;
-        if (ignoreTargetSkin)
-            distance -= target.lossyScale.z/5;
-        return distance;
+        
+        if (target != null)
+        {
+            float distance = Vector3.Distance(transform.position, target.position);
+            if (ignoreOurSkin)
+                distance -= transform.lossyScale.z;
+            if (ignoreTargetSkin)
+                distance -= target.lossyScale.z / 5;
+            return distance;
+        } else return 0f;
+        
+        
     }
 }
