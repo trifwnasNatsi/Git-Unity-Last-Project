@@ -13,14 +13,40 @@ public class Bullet : MonoBehaviour
     }
 
     // Update is called once per frame
-    
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponentInParent<EnemyHealth>())
+        EnemyHealth enemyHealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
+        if (enemyHealth != null)
         {
-            EnemyHealth enemyHealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
-            enemyHealth.TakeDamage(weapon.damage);
+            Hitbox hitbox = collision.gameObject.GetComponentInChildren<Hitbox>();
+            if (hitbox != null)
+            {
+                switch (hitbox.enemyCollisionType)
+                {
+                    case Hitbox.CollisionType.Head:
+                        enemyHealth.TakeDamage(weapon.damage * 5);
+                        Debug.Log("Headshot! Applied damage: " + (weapon.damage * 5));
+                        break;
+                    case Hitbox.CollisionType.Body:
+                        enemyHealth.TakeDamage(weapon.damage * 3);
+                        Debug.Log("Body hit! Applied damage: " + (weapon.damage * 3));
+                        break;
+                    case Hitbox.CollisionType.Arms:
+                        enemyHealth.TakeDamage(weapon.damage);
+                        Debug.Log("Arm hit! Applied damage: " + weapon.damage);
+                        break;
+                    case Hitbox.CollisionType.Legs:
+                        enemyHealth.TakeDamage(weapon.damage);
+                        Debug.Log("Leg hit! Applied damage: " + weapon.damage);
+                        break;
+                    default:
+                        Debug.Log("Unhandled hitbox type");
+                        break;
+                }
+            }
         }
+        // Destroy the bullet regardless of the collision outcome
         Destroy(this.gameObject);
     }
 }

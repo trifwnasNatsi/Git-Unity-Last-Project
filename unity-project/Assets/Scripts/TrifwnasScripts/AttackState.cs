@@ -28,7 +28,7 @@ public class AttackState : State
         {
             // Yes!
             actuator.Attack(target);
-            Debug.Log("i attacked");
+            //Debug.Log("i attacked");
             lastTimeUsed = Time.time;
             actuator.StopMoving();
 
