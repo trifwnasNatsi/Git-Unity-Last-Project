@@ -16,37 +16,42 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        EnemyHealth enemyHealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
-        if (enemyHealth != null)
+        // Ensure we are getting the Hitbox component from the exact collider involved in the collision
+        Hitbox hitbox = collision.collider.GetComponent<Hitbox>();
+        if (hitbox != null)
         {
-            Hitbox hitbox = collision.gameObject.GetComponentInChildren<Hitbox>();
-            if (hitbox != null)
+            EnemyHealth enemyHealth = collision.gameObject.GetComponentInParent<EnemyHealth>();
+            if (enemyHealth != null)
             {
                 switch (hitbox.enemyCollisionType)
                 {
                     case Hitbox.CollisionType.Head:
                         enemyHealth.TakeDamage(weapon.damage * 5);
-                        Debug.Log("Headshot! Applied damage: " + (weapon.damage * 5));
+                        //Debug.Log("Headshot! Applied damage: " + (weapon.damage * 5));
                         break;
                     case Hitbox.CollisionType.Body:
                         enemyHealth.TakeDamage(weapon.damage * 3);
-                        Debug.Log("Body hit! Applied damage: " + (weapon.damage * 3));
+                        //Debug.Log("Body hit! Applied damage: " + (weapon.damage * 3));
                         break;
                     case Hitbox.CollisionType.Arms:
                         enemyHealth.TakeDamage(weapon.damage);
-                        Debug.Log("Arm hit! Applied damage: " + weapon.damage);
+                        //Debug.Log("Arm hit! Applied damage: " + weapon.damage);
                         break;
                     case Hitbox.CollisionType.Legs:
                         enemyHealth.TakeDamage(weapon.damage);
-                        Debug.Log("Leg hit! Applied damage: " + weapon.damage);
+                        //Debug.Log("Leg hit! Applied damage: " + weapon.damage);
                         break;
                     default:
-                        Debug.Log("Unhandled hitbox type");
+                        //Debug.Log("Unhandled hitbox type");
                         break;
                 }
             }
         }
-        // Destroy the bullet regardless of the collision outcome
-        Destroy(this.gameObject);
+        else
+        {
+            //Debug.Log("No Hitbox component found on the collider.");
+        }
+    // Destroy the bullet regardless of the collision outcome
+    Destroy(this.gameObject);
     }
 }
