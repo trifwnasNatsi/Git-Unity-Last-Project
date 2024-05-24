@@ -449,6 +449,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 980093221}
     m_Modifications:
     - target: {fileID: 517427797422768913, guid: d28b7e37fc2cbcf4da23ac582319dcde, type: 3}
+      propertyPath: moveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 517427797422768913, guid: d28b7e37fc2cbcf4da23ac582319dcde, type: 3}
+      propertyPath: debugMovement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 517427797422768913, guid: d28b7e37fc2cbcf4da23ac582319dcde, type: 3}
       propertyPath: damagePerAttack
       value: 10
       objectReference: {fileID: 0}
@@ -462,15 +470,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1607563575068987657, guid: d28b7e37fc2cbcf4da23ac582319dcde, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.71
+      value: -6.61
       objectReference: {fileID: 0}
     - target: {fileID: 1607563575068987657, guid: d28b7e37fc2cbcf4da23ac582319dcde, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.67
+      value: -45.2
       objectReference: {fileID: 0}
     - target: {fileID: 1607563575068987657, guid: d28b7e37fc2cbcf4da23ac582319dcde, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.057
+      value: 5.34
       objectReference: {fileID: 0}
     - target: {fileID: 1607563575068987657, guid: d28b7e37fc2cbcf4da23ac582319dcde, type: 3}
       propertyPath: m_LocalRotation.w
@@ -520,6 +528,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3274751219256444271, guid: d28b7e37fc2cbcf4da23ac582319dcde, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3276726781126888734, guid: d28b7e37fc2cbcf4da23ac582319dcde, type: 3}
       propertyPath: target
       value: 
@@ -564,6 +576,14 @@ PrefabInstance:
       propertyPath: hitbox
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7987808089799204596, guid: d28b7e37fc2cbcf4da23ac582319dcde, type: 3}
+      propertyPath: leftLeg
+      value: 
+      objectReference: {fileID: 1763913045}
+    - target: {fileID: 7987808089799204596, guid: d28b7e37fc2cbcf4da23ac582319dcde, type: 3}
+      propertyPath: rightLeg
+      value: 
+      objectReference: {fileID: 590112126}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -635,6 +655,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  leftLeg: {fileID: 0}
+  rightLeg: {fileID: 0}
 --- !u!65 &134330541
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2924,7 +2946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6812f541ad6480242a5869c51fdeec23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCollisionType: 4
+  enemyCollisionType: 5
 --- !u!1 &626085301
 GameObject:
   m_ObjectHideFlags: 0
@@ -3913,6 +3935,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  leftLeg: {fileID: 0}
+  rightLeg: {fileID: 0}
 --- !u!65 &777054096
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4033,6 +4057,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  leftLeg: {fileID: 0}
+  rightLeg: {fileID: 0}
 --- !u!65 &781659619
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6173,7 +6199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6812f541ad6480242a5869c51fdeec23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCollisionType: 4
+  enemyCollisionType: 5
 --- !u!1 &1058593689
 GameObject:
   m_ObjectHideFlags: 0
@@ -6886,7 +6912,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187288163}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 2.5
@@ -7121,6 +7147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  leftLeg: {fileID: 0}
+  rightLeg: {fileID: 0}
 --- !u!65 &1275208412
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7469,6 +7497,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  leftLeg: {fileID: 0}
+  rightLeg: {fileID: 0}
 --- !u!65 &1332030018
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8907,6 +8937,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  leftLeg: {fileID: 0}
+  rightLeg: {fileID: 0}
 --- !u!1 &1645129584
 GameObject:
   m_ObjectHideFlags: 0
@@ -9852,7 +9884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 1000
+  maxHealth: 100
   healthbar: {fileID: 572232246}
 --- !u!65 &1779974688
 BoxCollider:
@@ -11592,6 +11624,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 80
+  leftLeg: {fileID: 0}
+  rightLeg: {fileID: 0}
 --- !u!1 &2117261575
 GameObject:
   m_ObjectHideFlags: 0

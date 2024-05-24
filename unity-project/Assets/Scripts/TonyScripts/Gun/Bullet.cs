@@ -37,8 +37,14 @@ public class Bullet : MonoBehaviour
                         enemyHealth.TakeDamage(weapon.damage);
                         //Debug.Log("Arm hit! Applied damage: " + weapon.damage);
                         break;
-                    case Hitbox.CollisionType.Legs:
+                    case Hitbox.CollisionType.RightLeg:
                         enemyHealth.TakeDamage(weapon.damage);
+                        enemyHealth.RightLegDamage(true);
+                        //Debug.Log("Leg hit! Applied damage: " + weapon.damage);
+                        break;
+                    case Hitbox.CollisionType.LeftLeg:
+                        enemyHealth.TakeDamage(weapon.damage);
+                        enemyHealth.LeftLegDamage(true);
                         //Debug.Log("Leg hit! Applied damage: " + weapon.damage);
                         break;
                     default:
